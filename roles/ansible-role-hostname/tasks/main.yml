@@ -1,0 +1,5 @@
+---
+# tasks file for ansible-role-hostname
+- name: Set hostname
+  hostname:
+    name: "{{ server_name }}"

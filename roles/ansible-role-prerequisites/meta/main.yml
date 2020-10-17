@@ -1,0 +1,12 @@
+galaxy_info:
+  author: Vladlen Rodionov
+  description: A simple role to install prerequisites
+  company: Archer
+  license: Apache
+  min_ansible_version: 1.4
+  galaxy_tags:
+    - vim
+    - wget
+    - git
+    - unzip
+dependencies: []

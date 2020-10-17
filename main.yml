@@ -1,0 +1,12 @@
+- hosts: all
+  tasks:
+  
+  - name: Update hostname
+    import_role:
+      name: ansible-role-hostname
+    vars:
+      server_name: "{{ inventory_hostname }}"
+
+  - name: Install Prerequisites
+    import_role:
+      name: ansible-role-prerequisites
