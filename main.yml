@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: web1c
   tasks:
   
   - name: Update hostname
@@ -10,3 +10,9 @@
   - name: Install Prerequisites
     import_role:
       name: ansible-role-prerequisites
+  
+  - include_tasks: "{{ ansible_os_family }}-clone.yml" 
+
+  - name: Install openjdk
+    import_role:
+      name: ansible-role-openjdk

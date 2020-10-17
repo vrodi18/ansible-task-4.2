@@ -1,0 +1,19 @@
+- name: java
+  package:
+    name: 
+      - "{{ ojdk_11_RH }}"
+      - "{{ ojdk_8_RH }}"
+    state: latest
+  when: ansible_os_family == 'RedHat'
+
+- name: bash_profile
+  shell:  echo 'JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.8.10-0.el7_8.x86_64/bin/java' > /home/centos/spring-petclinic/.bash_profile
+
+- name: source
+  shell: source /home/centos/spring-petclinic/.bash_profile
+
+- name: install mvnw 
+  shell: ./mvnw package    chdir=/home/centos/spring-petclinic
+
+- name: run java on Background
+  shell: 'nohup java -jar  /home/centos/spring-petclinic/target/*.jar  & ' 
